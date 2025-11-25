@@ -30,3 +30,5 @@ examples/aishell/llm_asr_nar/*
 env/
 output/
 output
+
+models
