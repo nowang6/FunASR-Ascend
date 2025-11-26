@@ -4,12 +4,17 @@ chunk_size = [0, 10, 5] #[0, 10, 5] 600ms, [0, 8, 4] 480ms
 encoder_chunk_look_back = 4 #number of chunks to lookback for encoder self-attention
 decoder_chunk_look_back = 1 #number of encoder chunks to lookback for decoder cross-attention
 
-model = AutoModel(model="paraformer-zh-streaming", model_revision="v2.0.4")
+
+model = AutoModel(model="araformer-zh-streaming", model_revision="v2.0.4",
+                  vad_model="fsmn-vad", vad_model_revision="v2.0.4",
+                  punc_model="ct-punc-c", punc_model_revision="v2.0.4",
+                  spk_model="cam++", spk_model_revision="v2.0.2",
+                  )
 
 import soundfile
 import os
 
-wav_file = "创建警单.wav"
+wav_file = "wav/120报警电话16k.wav"
 speech, sample_rate = soundfile.read(wav_file)
 chunk_stride = chunk_size[1] * 960 # 600ms
 
