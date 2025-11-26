@@ -26,7 +26,7 @@ def _load_audio(path: str, target_sr: int = 16000) -> Tuple[np.ndarray, int]:
 def main():
     chunk_size = [0, 10, 5]  # [0, 10, 5] -> 600 ms window; second entry controls stride
 
-    model_dir = os.path.join("models", "speech_paraformer-large_asr", "onnx")
+    model_dir = os.path.join("models", "speech_paraformer-large_asr_onnx")
     wav_file = "创建警单.wav"
 
     paraformer = Paraformer(model_dir=model_dir, chunk_size=chunk_size, device_id="-1")
